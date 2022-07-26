@@ -1,22 +1,22 @@
 import java.util.Scanner;
+
+import javax.swing.plaf.TreeUI;
 class Main {
     public static void main (String[] args) {
+        
+        
+
         Menu ecommerceMenu = generateMenu();
         System.out.println(ecommerceMenu.toString());
 
 
         Order order = new Order();
-
         // Don't have the Java knowledge to put this in separate class / interface
         Boolean orderDone = false;
         String nextItem = "";
         System.out.println("Place your next order.");
         System.out.println("For example, Type 00 for \"Butter Chicken\".");
         System.out.println("Type \"D\" To Finish");
-        
-        // Scanner sc = new Scanner(System.in);
-        // nextItem = sc.nextLine();
-        // System.out.println(nextItem);
         
         while(!orderDone) {
             Scanner sc = new Scanner(System.in);
@@ -35,7 +35,35 @@ class Main {
         order.printOrder();
         order.printTotal();
 
+        
+        
+        
+        paymentMethod();
+       
 
+        System.out.println("Thanks for placing an order, your shipping information will be provided shortly through email!");
+
+
+    }
+
+    private static void paymentMethod() {
+        Scanner sc = new Scanner(System.in);
+        Boolean paymentSelected = false;
+            while (!paymentSelected) {
+                
+                System.out.println("\n\n");
+                System.out.println("How would you like to pay?");
+                System.out.println("1: Credit Card");
+                System.out.println("2: Cash");
+                System.out.println("3: Cheque");
+                System.out.println("4: Gold Bars");
+                
+                int paymentType = sc.nextInt();
+                
+                if (paymentType >= 1 && paymentType <= 4) {
+                    paymentSelected = true;
+                }
+            }   
     }
     
     public static Menu generateMenu() {
