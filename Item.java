@@ -1,3 +1,5 @@
+// Item can be base for Product and Food
+
 abstract class Item {
     private double price;
     private String title;
