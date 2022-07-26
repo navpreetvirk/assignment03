@@ -34,7 +34,32 @@ class Order {
         this.products.remove(products);
         this.subTotal -= products.getPrice();
     }
+
     
+    public void printOrder() {
+        String orderContent = "";
+        orderContent += "Your Order: \n";
+
+        for (int i = 0; i < this.products.size(); i++) {
+            Product product = this.products.get(i);
+            orderContent += String.format("%-5d%-20s$%.2f%s", (i + 1), product.getTitle(), product.getPrice(), "\n");
+        }
+
+        System.out.println(orderContent);
+    }
+
+    public void printTotal() {
+        int total = 0;
+
+        
+        for (int i = 0; i < this.products.size(); i++) {
+            Product product = this.products.get(i);
+            total += product.getPrice();
+        }
+
+        System.out.println("Your Total: $" + total);
+    }
+
     // public String toString() {
     //     // 
     // }
