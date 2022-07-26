@@ -1,7 +1,4 @@
 import java.util.Scanner;
-
-import javax.lang.model.util.ElementScanner14;
-
 class Main {
     public static void main (String[] args) {
         Menu ecommerceMenu = generateMenu();
