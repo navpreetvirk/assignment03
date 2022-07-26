@@ -2,35 +2,37 @@ import java.util.ArrayList;
 
 class Order {
     private int subTotal;
-    private ArrayList<Items> items;
+    private ArrayList<Product> products;
     
     Order() {
         this.subTotal = 0;
-        this.items = new ArrayList<Items>();
+        this.items = new ArrayList<Product>();
     }
     
     int getSubTotal() {
         return this.subTotal;
     }
     
-    ArrayList<Items> getItems() {
-        return this.items;
+    ArrayList<Product> getProducts() {
+        return this.products;
     }
     
     void setSubTotal(int subtotal) {
         this.subTotal = subtotal;
     }
     
-    void getItems(ArrayList<Items> items) {
+    void getProducts(ArrayList<Items> items) {
         this.items = items;
     }
     
-    Item addItem(Item item) {
-        this.items.add(item);
+    Item addProduct(Product product) {
+        this.items.add(product);
+        this.subtotal += product.getPrice();
     }
     
-    void removeItem(int index) {
+    void removeProduct(int index) {
         this.items.remove(index);
+        this.subtotal -= product.getPrice();
     }
     
     public String toString() {

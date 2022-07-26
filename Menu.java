@@ -38,14 +38,14 @@ class Menu {
                     menuString += "\n";
                 }
                 Collection collection = this.menu.get(i);
-                menuString += String.format("%-30s", " ").replaceAll(" ", "*").concat("\n");
-                menuString += String.format("%-5d%s", i, (collection.getTitle() + "\n"));
-                menuString += String.format("%-30s", " ").replaceAll(" ", "*").concat("\n");
-                menuString += String.format("%-5s%-20s%s", "#", "Title", "Price\n");
-                menuString += String.format("%-30s", " ").replaceAll(" ", "-").concat("\n");
+                menuString += String.format("%-31s", " ").replaceAll(" ", "*").concat("\n");
+                menuString += String.format("%s", (collection.getTitle() + "\n"));
+                menuString += String.format("%-31s", " ").replaceAll(" ", "*").concat("\n");
+                menuString += String.format("%-5s%-20s%s", "##", "Title", "Price\n");
+                menuString += String.format("%-31s", " ").replaceAll(" ", "-").concat("\n");
                 for (int j = 0; j < collection.getSize(); j++) {
                     Product product = collection.getProduct(j);
-                    menuString += String.format("%-5d%-20s%.2f\n", j, product.getTitle(), product.getPrice());
+                    menuString += String.format("%d%-4d%-20s$%.2f\n", i, j, product.getTitle(), product.getPrice());
                 }
             }
         }
