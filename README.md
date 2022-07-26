@@ -18,7 +18,7 @@ A user will be provided a menu. The menu will be formatted as follows.
 1	Men’s Pant		    $10.00 
 2	Women’s Pants	    $25.00 
 
-<!-- OR -->
+OR
 
     Collection       => FoodType(Chicken)
 #	Food Item		    Product Price
@@ -53,20 +53,25 @@ Add as many as conditions or provide as much as information, you can think is re
 
 
 create groups
+
 create items in groups
 
 
 create menu
+
 display menu to user
 
 
 while user picking item
+
     add item too array
 
 
 for items in array
+
     sum total + tax
 
 
 prompt payment option
+
 send confirmation
