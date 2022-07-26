@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 abstract class Collection {
-    private ArrayList<Item> collection;
+    private ArrayList<Product> collection;
     private String title;
     
     Collection(String title) {
-        this.collection = new ArrayList<Item>();
+        this.collection = new ArrayList<Product>();
         this.title = title;
     }
     
-    ArrayList<Item> getCollection() {
+    ArrayList<Product> getCollection() {
         return this.collection;
     }
     
@@ -21,7 +21,7 @@ abstract class Collection {
         return this.title;
     }
     
-    void setCollection(ArrayList<Item> collection) {
+    void setCollection(ArrayList<Product> collection) {
         this.collection = collection;
     }
     
@@ -29,11 +29,11 @@ abstract class Collection {
         this.title = title;
     }
     
-    void addItemToCollection(Item item) {
-        collection.add(item);
+    void addProductToCollection(Product product) {
+        collection.add(product);
     }
     
-    Item getItem(int itemIndex) {
-        return this.collection.get(itemIndex);
+    Product getProduct(int productIndex) {
+        return this.collection.get(productIndex);
     }
 }

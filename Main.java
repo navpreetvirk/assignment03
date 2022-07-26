@@ -11,16 +11,16 @@ class Main {
         int shirtsIndex = menu.getCollectionIndex(tShirts);
         TShirt mensTShirt = new TShirt(15, "Men's T-Shirt");
         TShirt womensTShirt = new TShirt(15, "Women's T-Shirt");
-        menu.addItem(shirtsIndex, mensTShirt);
-        menu.addItem(shirtsIndex, womensTShirt);
+        menu.addProduct(shirtsIndex, mensTShirt);
+        menu.addProduct(shirtsIndex, womensTShirt);
         
         Pants pants = new Pants("Pants");
         menu.addCollection(pants);
         int pantsIndex = menu.getCollectionIndex(pants);
         Pant mensPant = new Pant(10, "Men's Pant");
         Pant womensPant = new Pant(25, "Women's Pant");
-        menu.addItem(pantsIndex, mensPant);
-        menu.addItem(pantsIndex, womensPant);
+        menu.addProduct(pantsIndex, mensPant);
+        menu.addProduct(pantsIndex, womensPant);
         
         return menu;
     }

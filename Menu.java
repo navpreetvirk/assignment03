@@ -23,8 +23,8 @@ class Menu {
         this.menu.add(collection);
     }
     
-    void addItem(int collectionIndex, Item item) {
-        this.menu.get(collectionIndex).addItemToCollection(item);
+    void addProduct(int collectionIndex, Product product) {
+        this.menu.get(collectionIndex).addProductToCollection(product);
     }
 
 
@@ -44,8 +44,8 @@ class Menu {
                 menuString += String.format("%-5s%-20s%s", "#", "Title", "Price\n");
                 menuString += String.format("%-30s", " ").replaceAll(" ", "-").concat("\n");
                 for (int j = 0; j < collection.getSize(); j++) {
-                    Item item = collection.getItem(j);
-                    menuString += String.format("%-5d%-20s%.2f\n", j, item.getTitle(), item.getPrice());
+                    Product product = collection.getProduct(j);
+                    menuString += String.format("%-5d%-20s%.2f\n", j, product.getTitle(), product.getPrice());
                 }
             }
         }
