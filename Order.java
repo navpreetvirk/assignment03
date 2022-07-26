@@ -6,7 +6,7 @@ class Order {
     
     Order() {
         this.subTotal = 0;
-        this.items = new ArrayList<Product>();
+        this.products = new ArrayList<Product>();
     }
     
     int getSubTotal() {
@@ -21,21 +21,21 @@ class Order {
         this.subTotal = subtotal;
     }
     
-    void getProducts(ArrayList<Items> items) {
-        this.items = items;
+    void getProducts(ArrayList<Product> products) {
+        this.products = products;
     }
     
-    Item addProduct(Product product) {
-        this.items.add(product);
-        this.subtotal += product.getPrice();
+    void addProduct(Product products) {
+        this.products.add(products);
+        this.subTotal += products.getPrice();
     }
     
-    void removeProduct(int index) {
-        this.items.remove(index);
-        this.subtotal -= product.getPrice();
+    void removeProduct(Product products) {
+        this.products.remove(products);
+        this.subTotal -= products.getPrice();
     }
     
-    public String toString() {
-        // 
-    }
+    // public String toString() {
+    //     // 
+    // }
 }

@@ -1,9 +1,42 @@
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 class Main {
     public static void main (String[] args) {
         Menu ecommerceMenu = generateMenu();
         System.out.println(ecommerceMenu.toString());
+
+
+        Order order = new Order();
+
+        // Don't have the Java knowledge to put this in separate class / interface
+        Boolean orderDone = false;
+        String nextItem = "";
+        System.out.println("Place your next order.");
+        System.out.println("For example, Type 00 for \"Butter Chicken\".");
+        System.out.println("Type \"D\" To Finish");
+        
+        // Scanner sc = new Scanner(System.in);
+        // nextItem = sc.nextLine();
+        // System.out.println(nextItem);
+        
+        while(!orderDone) {
+            Scanner sc = new Scanner(System.in);
+            nextItem = sc.nextLine();
+    
+            if (!nextItem.equals("D")) {
+                int collectionIndex = Character.getNumericValue(nextItem.charAt(0));
+                int itemIndex = Character.getNumericValue(nextItem.charAt(1));
+                Product itemToAdd = ecommerceMenu.getProduct(collectionIndex, itemIndex);
+                order.addProduct(itemToAdd);
+            }
+            else {
+                orderDone = true;
+            }
+        }
+
+
     }
     
     public static Menu generateMenu() {

@@ -11,6 +11,11 @@ class Menu {
         return this.menu;
     }
     
+    public Product getProduct(int collectionIndex, int itemIndex) {
+        Collection collection = this.menu.get(collectionIndex);
+        return collection.getCollection().get(itemIndex);
+      }
+      
     public int getCollectionIndex(Collection collection) {
        return this.menu.indexOf(collection);
     }
