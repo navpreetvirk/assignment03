@@ -1,4 +1,7 @@
+import java.util.Date;
 import java.util.Scanner;
+import java.util.TimerTask;
+
 class Main {
     public static void main (String[] args) {
         
@@ -33,15 +36,27 @@ class Main {
         order.printOrder();
         order.printTotal();
 
-        
-        
-        
         paymentMethod();
-       
+        printReceipt();
 
-        System.out.println("Thanks for placing an order, your shipping information will be provided shortly through email!");
+    }
+    
+    
+    private static void printReceipt() {
+        TimerTask task = new TimerTask() {
+            public void run() {
+                System.out.println("\n\n");
+                System.out.println("Tracking number: CGK002986959");
+                System.out.println("Your Order Will be Delivered in 3 - 4 Days");
+                 System.out.println("Thank you for your business!");
+            }
+        };
 
-
+        java.util.Timer timer = new java.util.Timer("Timer");
+        
+        long delay = 10000L;
+        timer.schedule(task, delay);
+        
     }
 
     private static void paymentMethod() {
@@ -62,6 +77,7 @@ class Main {
                     paymentSelected = true;
                 }
             }   
+            System.out.println("Thanks for placing an order, your shipping information will be provided shortly through email!");
     }
     
     public static Menu generateMenu() {
