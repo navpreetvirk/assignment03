@@ -11,6 +11,10 @@ class Menu {
         return this.menu;
     }
     
+    public int getCollectionIndex(Collection collection) {
+       return this.menu.indexOf(collection);
+    }
+
     void setMenu(ArrayList<Collection> menu) {
         this.menu = menu;
     }
@@ -22,6 +26,8 @@ class Menu {
     void addItem(int collectionIndex, Item item) {
         this.menu.get(collectionIndex).addItemToCollection(item);
     }
+
+
     
     public String toString() {
         String menuString = "";
@@ -46,4 +52,5 @@ class Menu {
         
         return menuString;
     }
+
 }
