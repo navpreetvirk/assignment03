@@ -35,6 +35,8 @@ class Main {
                 orderDone = true;
             }
         }
+        order.printOrder();
+        order.printTotal();
 
 
     }
