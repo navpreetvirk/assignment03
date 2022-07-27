@@ -31,8 +31,6 @@ class Menu {
     void addProduct(int collectionIndex, Product product) {
         this.menu.get(collectionIndex).addProductToCollection(product);
     }
-
-
     
     public String toString() {
         String menuString = "";

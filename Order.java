@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 class Order {
-    private int subTotal;
+    private double subTotal;
     private ArrayList<Product> products;
     
     Order() {
@@ -9,7 +9,7 @@ class Order {
         this.products = new ArrayList<Product>();
     }
     
-    int getSubTotal() {
+    double getSubTotal() {
         return this.subTotal;
     }
     
@@ -17,50 +17,74 @@ class Order {
         return this.products;
     }
     
-    void setSubTotal(int subtotal) {
-        this.subTotal = subtotal;
+    void addProduct(Product product) {
+        this.subTotal += product.getPrice();
+        this.products.add(product);
     }
     
-    void getProducts(ArrayList<Product> products) {
-        this.products = products;
+    void removeProduct(int index) {
+        this.subTotal -= this.products.get(index).getPrice();
+        this.products.remove(index);
     }
     
-    void addProduct(Product products) {
-        this.products.add(products);
-        this.subTotal += products.getPrice();
+    void resetOrder() {
+        this.subTotal = 0;
+        this.products = new ArrayList<Product>();
     }
     
-    void removeProduct(Product products) {
-        this.products.remove(products);
-        this.subTotal -= products.getPrice();
-    }
-
-    
-    public void printOrder() {
-        String orderContent = "";
-        orderContent += "Your Order: \n";
-
-        for (int i = 0; i < this.products.size(); i++) {
-            Product product = this.products.get(i);
-            orderContent += String.format("%-5d%-20s$%.2f%s", (i + 1), product.getTitle(), product.getPrice(), "\n");
+    boolean isEmpty() {
+        if (this.products.size() == 0) {
+            return true;
         }
-
-        System.out.println(orderContent);
+        return false;
     }
 
-    public void printTotal() {
-        int total = 0;
-
+    public String getSummary() {
+        String orderSummary = "";
+        orderSummary += String.format("%30s", "").replaceAll(" ", "*").concat("\n");
+        orderSummary += "Order Summary\n";
+        orderSummary += String.format("%30s", "").replaceAll(" ", "*").concat("\n");
         
-        for (int i = 0; i < this.products.size(); i++) {
-            Product product = this.products.get(i);
-            total += product.getPrice();
+        orderSummary += String.format("%-5s%-20s%s", "#", "Title", "Price\n");
+        orderSummary += String.format("%30s", "").replaceAll(" ", "-").concat("\n");
+        if (this.products.size() > 0) {
+            for (int i = 0; i < products.size(); i++) {
+                Product product = products.get(i);
+                orderSummary += String.format("%-5d%-20s%.2f%s", i, product.getTitle(), product.getPrice(), "\n");
+            }
+            
+            
+            orderSummary += String.format("%30s", "").replaceAll(" ", "+").concat("\n");
+            orderSummary += String.format("%5s%-20s%.2f%s", "", "Sub Total", this.subTotal, "\n");
+            orderSummary += String.format("%30s", "").replaceAll(" ", "+").concat("\n");
+        } else {
+            orderSummary += "Empty";
         }
-
-        System.out.println("Your Total: $" + total);
+        
+        return orderSummary;
     }
-
-    // public String toString() {
-    //     // 
-    // }
+    
+    public String getReceipt() {
+        String receiptString = "";
+        receiptString += String.format("%31s", "").replaceAll(" ", "*").concat("\n");
+        receiptString += "Receipt\n";
+        receiptString += String.format("%31s", "").replaceAll(" ", "*").concat("\n");
+        
+        receiptString += String.format("%-5s%-20s%s", "#", "Title", "Price\n");
+        receiptString += String.format("%30s", "").replaceAll(" ", "-").concat("\n");
+        for (int i = 0; i < products.size(); i++) {
+            Product product = products.get(i);
+            receiptString += String.format("%-5d%-20s$%.2f%s", i, product.getTitle(), product.getPrice(), "\n");
+        }
+        
+        
+        receiptString += String.format("%31s", "").replaceAll(" ", "+").concat("\n");
+        receiptString += String.format("%5s%-20s$%.2f%s", "", "Sub Total", this.subTotal, "\n");
+        receiptString += String.format("%5s%-20s$%.2f%s", "", "Total Taxes", this.subTotal * .12, "\n");
+        receiptString += String.format("%31s", "").replaceAll(" ", "+").concat("\n");
+        receiptString += String.format("%5s%-20s$%.2f%s", "", "Total", this.subTotal * 1.12, "\n");
+        receiptString += String.format("%31s", "").replaceAll(" ", "+").concat("\n");
+        
+        return receiptString;
+    }
 }
