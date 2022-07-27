@@ -75,6 +75,3 @@ for items in array
 prompt payment option
 
 send confirmation
-
-
-TEST
